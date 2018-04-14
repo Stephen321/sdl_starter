@@ -86,6 +86,9 @@ add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
 )
 
 if (WIN32)
+	#set VS working directory
+	set_target_properties(${PROJECT_NAME} PROPERTIES VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_BINARY_DIR}")
+
     #windows visual studio also needs to copy the dll as well:
     # https://stackoverflow.com/questions/10671916/how-to-copy-dll-files-into-the-same-folder-as-the-executable-using-cmake
     add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD        
