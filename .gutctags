@@ -1,0 +1,2 @@
+--exclude=@.gitignore
+--exclude=include/catch/catch.hpp
