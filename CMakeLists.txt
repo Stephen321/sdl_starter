@@ -1,7 +1,7 @@
 # TODO: PUBLIC vs INTERFACE vs PRIVATE
 
 cmake_minimum_required(VERSION 3.7.2-1)
-project("hearthclone")
+project("sdl_starter")
 
 set(PROJECT_LIB "${PROJECT_NAME}_lib")
 set(INCLUDE_DIR "include")
