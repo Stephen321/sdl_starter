@@ -1,7 +1,7 @@
 # TODO: PUBLIC vs INTERFACE vs PRIVATE
 
 cmake_minimum_required(VERSION 3.7.2-1)
-project("hearthclone")
+project("sdl_starter")
 
 set(PROJECT_LIB "${PROJECT_NAME}_lib")
 set(INCLUDE_DIR "include")
@@ -20,18 +20,11 @@ set(JSON_INCLUDE_DIR "${INCLUDE_DIR}/json")
 
 if (WIN32)
     #https://ccavusoglu.github.io/posts/Setting-up-SDL2-and-SDL_gpu-on-Windows-using-CMake/
-    # This path is used by FindSDL2 module. 
-    # It will find include and lib folders under this directory.
-    # This is because find command doesn't include any path for Windows.
-    # So it can't find anything using default paths.
-    # SDL2_PATH is already expected in module file. 
-    # Adding SDL2DIR to enviroment variables may work as well.
-    # *Urgh, cant automatically find path on windows like you can on linux cause no defaults*
-    # could "Add Entry" in cmake-gui or -D on cmd line to set this...
-    set(SDL2_PATH "D:/Dev/SDL2-2.0.8")
-
-    #same for SDL2_image
-    set(SDL2_IMAGE_PATH "D:/Dev/SDL2_image-2.0.2")
+    # on linux there libraies get installed to some default location, on windows you must let the 
+    # find script know here to look
+    # *todo: could the Find cmake files path not be set directly from enviroment variables?*
+    set(SDL2_PATH "$ENV{SDL2_ROOT}/SDL2-2.0.8")
+    set(SDL2_IMAGE_PATH "$ENV{SDL2_ROOT}/SDL2_image-2.0.2")
 endif ()
 
 # https://github.com/tcbrindle/sdl2-cmake-scripts
@@ -51,6 +44,8 @@ target_link_libraries(${PROJECT_LIB} PUBLIC ${SDL2_IMAGE_LIBRARIES})
 target_link_libraries(${PROJECT_LIB} PUBLIC Catch)
 
 # link executable with project library
+# *todo: it seems like sdl_starter_lib and sdl_starter both compile the src files so its done twice. why? (possibly
+# because of add_library and add_executable both incling source files??)*
 add_executable(${PROJECT_NAME} ${INCLUDE_FILES} ${SOURCE_FILES} ${SOURCE_MAIN})
 target_link_libraries(${PROJECT_NAME} PUBLIC ${PROJECT_LIB})
 
