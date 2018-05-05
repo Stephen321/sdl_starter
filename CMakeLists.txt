@@ -10,8 +10,11 @@ set(INCLUDE_DIR "include")
 # https://stackoverflow.com/questions/1027247/is-it-better-to-specify-source-files-with-glob-or-each-file-individually-in-cmak
 file(GLOB INCLUDE_FILES "${INCLUDE_DIR}/*.h")
 file(GLOB SOURCE_FILES "src/*.cpp")
+
+#split off main as it doesnt need to be in lib, only exe
 set(SOURCE_MAIN "src/main.cpp")
 list(REMOVE_ITEM SOURCE_FILES SOURCE_MAIN)
+
 set(JSON_INCLUDE_DIR "${INCLUDE_DIR}/json")
 
 # This might not work as cmake has a FindSDL.cmake and doesn't find SDL2
