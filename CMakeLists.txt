@@ -1,4 +1,5 @@
 # TODO: PUBLIC vs INTERFACE vs PRIVATE
+# See: https://github.com/stephen321/sfml_starter
 
 cmake_minimum_required(VERSION 3.7.2-1)
 project("sdl_starter")
@@ -13,7 +14,10 @@ file(GLOB SOURCE_FILES "src/*.cpp")
 
 #split off main as it doesnt need to be in lib, only exe
 set(SOURCE_MAIN "src/main.cpp")
-list(REMOVE_ITEM SOURCE_FILES SOURCE_MAIN)
+# list(REMOVE_ITEM SOURCE_FILES SOURCE_MAIN)
+# the above doesnt seem to work so using regex
+# https://stackoverflow.com/questions/15550777/how-do-i-exclude-a-single-file-from-a-cmake-fileglob-pattern
+list(FILTER SOURCE_FILES EXCLUDE REGEX ".*${SOURCE_MAIN}$")
 
 set(JSON_INCLUDE_DIR "${INCLUDE_DIR}/json")
 

@@ -1,9 +1,6 @@
 # build which you create manually for cmake building (pprobably dont need a lot of the other stuff in this file)
 build/
 
-# contains all downloaded data from hearthstone unoffical api from mashape
-scripts/data.json
-
 # tags file for vim
 tags
 
