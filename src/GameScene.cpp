@@ -4,7 +4,6 @@
 
 #include "Renderer.h"
 #include "Constants.h"
-#include "json.hpp"
 
 GameScene::GameScene()
     : Scene(Type::GameScene) {

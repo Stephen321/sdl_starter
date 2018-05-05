@@ -12,6 +12,7 @@ public:
     void drawRectOutline(const SDL_Rect& rect, const Colour& colour) const;
     void drawRect(const SDL_Rect& rect, const Colour& colour) const;
     void drawTexture(SDL_Texture* texture, const SDL_Rect& src, const SDL_Rect& dest) const;
+    void drawTextureEx(SDL_Texture* texture, const SDL_Rect* src, const SDL_Rect* dest, double angle = 0.0, SDL_Point* centre = nullptr, SDL_RendererFlip flip = SDL_FLIP_NONE) const;
     void setDrawColor(int r, int g, int b, int a) const;
     void setDrawColor(const Colour& colour) const;
     void clear(const Colour& colour = Colour(0, 0, 0, 0));

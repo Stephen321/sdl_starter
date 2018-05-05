@@ -40,6 +40,10 @@ void Renderer::drawTexture(SDL_Texture* texture, const SDL_Rect& src, const SDL_
     SDL_RenderCopy(m_renderer, texture, &src, &dest);
 }
 
+void Renderer::drawTextureEx(SDL_Texture* texture, const SDL_Rect* src, const SDL_Rect* dest, double angle, SDL_Point* centre, SDL_RendererFlip flip) const {
+	SDL_RenderCopyEx(m_renderer, texture, src, dest, angle, centre, flip);
+}
+
 void Renderer::setDrawColor(int r, int g, int b, int a) const {
     SDL_SetRenderDrawColor(m_renderer, r, g, b, a);
 }

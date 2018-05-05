@@ -1,8 +1,3 @@
-*TODO: Debug vs Release | 32 vs 64-bit*  
-*TODO: Continuous Integration with Github*  
-*TODO: emscripten port*  
-*TODO: automatic deployment*  
-
 Need to set SDL2_PATH(and SDL2_IMAGE_PATH) for windows and linux if not default location.
 
 1. Change in CMakeLists.txt
